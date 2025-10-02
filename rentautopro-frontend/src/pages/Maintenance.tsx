@@ -39,6 +39,7 @@ const MaintenancePage = () => {
       queryClient.invalidateQueries({ queryKey: ['maintenances'] });
       setIsModalOpen(false);
       setSelectedMaintenance(undefined);
+      setPage(1); // Reinicia a la primera página para mostrar el nuevo mantenimiento
     },
   });
 
@@ -108,14 +109,14 @@ const MaintenancePage = () => {
   };
 
   if (isLoading) {
-    return <div className="flex justify-center items-center h-64">Cargando...</div>;
+  return <div className="flex justify-center items-center h-64 bg-blue-100">Cargando...</div>;
   }
 
   const maintenances = data?.data || [];
   const vehicles = vehiclesData?.data || [];
 
   return (
-    <div className="space-y-6">
+  <div className="space-y-6 min-h-screen p-6">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Mantenimientos</h1>

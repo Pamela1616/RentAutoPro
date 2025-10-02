@@ -22,86 +22,86 @@ const Dashboard = () => {
   const kpis = kpisData;
 
   return (
-    <div className="space-y-8">
+  <div className="space-y-8 bg-gray-50 min-h-screen p-6">
       <div className="text-center">
-        <h1 className="text-4xl font-bold gradient-text mb-2">Dashboard</h1>
-        <p className="text-lg text-gray-600">Resumen general del sistema RentAutoPro</p>
+        <h1 className="text-4xl font-bold mb-2 text-blue-700">Dashboard</h1>
+        <p className="text-lg text-blue-500">Resumen general del sistema RentAutoPro</p>
       </div>
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="card-hover group">
+        <div className="card-hover group border border-blue-200 bg-blue-50">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Vehículos Totales</p>
-              <p className="text-4xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
+              <p className="text-sm font-medium text-blue-600 mb-1">Vehículos Totales</p>
+              <p className="text-4xl font-bold text-blue-900 group-hover:text-blue-700 transition-colors duration-300">
                 {kpis?.vehicles.total || 0}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Car className="text-white" size={28} />
             </div>
           </div>
           <div className="mt-6 flex items-center space-x-2 text-sm">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-            <span className="text-emerald-600 font-medium">
+            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+            <span className="text-blue-600 font-medium">
               {kpis?.vehicles.available || 0} disponibles
             </span>
           </div>
         </div>
 
-        <div className="card-hover group">
+        <div className="card-hover group border border-blue-200 bg-blue-50">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Ingresos del Mes</p>
-              <p className="text-4xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
+              <p className="text-sm font-medium text-blue-600 mb-1">Ingresos del Mes</p>
+              <p className="text-4xl font-bold text-blue-900 group-hover:text-blue-700 transition-colors duration-300">
                 ${(kpis?.financials.month_revenue || 0).toLocaleString()}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
               <DollarSign className="text-white" size={28} />
             </div>
           </div>
-          <div className="mt-6 text-sm text-gray-600">
+          <div className="mt-6 text-sm text-blue-600">
             <span className="font-medium">Ganancia neta:</span> ${(kpis?.financials.net_profit || 0).toLocaleString()}
           </div>
         </div>
 
-        <div className="card-hover group">
+        <div className="card-hover group border border-blue-200 bg-blue-50">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Alquileres Activos</p>
-              <p className="text-4xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+              <p className="text-sm font-medium text-blue-600 mb-1">Alquileres Activos</p>
+              <p className="text-4xl font-bold text-blue-900 group-hover:text-blue-700 transition-colors duration-300">
                 {kpis?.rentals.active || 0}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
               <TrendingUp className="text-white" size={28} />
             </div>
           </div>
           <div className="mt-6 flex items-center space-x-2 text-sm">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
             <span className="text-blue-600 font-medium">
               {kpis?.rentals.reserved || 0} reservados
             </span>
           </div>
         </div>
 
-        <div className="card-hover group">
+        <div className="card-hover group border border-blue-200 bg-blue-50">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Mantenimientos Pendientes</p>
-              <p className="text-4xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+              <p className="text-sm font-medium text-blue-600 mb-1">Mantenimientos Pendientes</p>
+              <p className="text-4xl font-bold text-blue-900 group-hover:text-blue-700 transition-colors duration-300">
                 {kpis?.maintenance.pending || 0}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-4 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
               <Wrench className="text-white" size={28} />
             </div>
           </div>
           <div className="mt-6 flex items-center space-x-2 text-sm">
-            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-            <span className="text-orange-600 font-medium">Requieren atención</span>
+            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+            <span className="text-blue-600 font-medium">Requieren atención</span>
           </div>
         </div>
       </div>

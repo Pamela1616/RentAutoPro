@@ -90,68 +90,68 @@ const Vehicles = () => {
   };
 
   if (isLoading) {
-    return <div className="flex justify-center items-center h-64">Cargando...</div>;
+    return <div className="flex justify-center items-center h-64 bg-blue-100">Cargando...</div>;
   }
 
   const vehicles = data?.data || [];
 
   if (viewMode === 'detail' && detailVehicle) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 min-h-screen p-6">
         <div className="flex items-center space-x-4">
-          <button onClick={() => setViewMode('list')} className="btn-secondary">
+          <button onClick={() => setViewMode('list')} className="btn-secondary bg-blue-200 text-blue-800">
             ← Volver
           </button>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-blue-900">
             {detailVehicle.brand} {detailVehicle.model}
           </h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 card">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Información del Vehículo</h2>
+          <div className="lg:col-span-2 card  border border-blue-200">
+            <h2 className="text-xl font-bold text-blue-900 mb-4">Información del Vehículo</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-sm text-gray-500">Marca</p>
-                <p className="font-semibold">{detailVehicle.brand}</p>
+                <p className="text-sm text-blue-600">Marca</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.brand}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Modelo</p>
-                <p className="font-semibold">{detailVehicle.model}</p>
+                <p className="text-sm text-blue-600">Modelo</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.model}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Año</p>
-                <p className="font-semibold">{detailVehicle.year}</p>
+                <p className="text-sm text-blue-600">Año</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.year}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Placa</p>
-                <p className="font-semibold">{detailVehicle.license_plate}</p>
+                <p className="text-sm text-blue-600">Placa</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.license_plate}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Combustible</p>
-                <p className="font-semibold">{detailVehicle.fuel_type}</p>
+                <p className="text-sm text-blue-600">Combustible</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.fuel_type}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Kilometraje</p>
-                <p className="font-semibold">{detailVehicle.current_km.toLocaleString()} km</p>
+                <p className="text-sm text-blue-600">Kilometraje</p>
+                <p className="font-semibold text-blue-900">{detailVehicle.current_km.toLocaleString()} km</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Tarifa Diaria</p>
-                <p className="font-semibold">S/. {detailVehicle.daily_rate}</p>
+                <p className="text-sm text-blue-600">Tarifa Diaria</p>
+                <p className="font-semibold text-blue-900">S/. {detailVehicle.daily_rate}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Estado</p>
+                <p className="text-sm text-blue-600">Estado</p>
                 {getStatusBadge(detailVehicle.status)}
               </div>
             </div>
           </div>
 
-          <div className="card">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Acciones</h2>
+          <div className="card bg-blue-50 border border-blue-200">
+            <h2 className="text-xl font-bold text-blue-900 mb-4">Acciones</h2>
             <div className="space-y-3">
               <button
                 onClick={() => handleEdit(detailVehicle)}
-                className="w-full btn-primary flex items-center justify-center space-x-2"
+                className="w-full btn-primary flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white"
               >
                 <Edit size={18} />
                 <span>Editar Vehículo</span>
@@ -167,12 +167,12 @@ const Vehicles = () => {
           </div>
         </div>
 
-        <div className="card">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
+        <div className="card bg-blue-50 border border-blue-200">
+          <h2 className="text-xl font-bold text-blue-900 mb-4 flex items-center space-x-2">
             <History size={24} />
             <span>Historial del Vehículo</span>
           </h2>
-          <p className="text-gray-500">
+          <p className="text-blue-600">
             Aquí se mostrará el historial de mantenimientos, alquileres y registros de combustible.
           </p>
         </div>
@@ -181,74 +181,74 @@ const Vehicles = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-blue-100 min-h-screen p-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Vehículos</h1>
-          <p className="mt-1 text-gray-500">Gestión de la flota de vehículos</p>
+          <h1 className="text-3xl font-bold text-blue-900">Vehículos</h1>
+          <p className="mt-1 text-blue-600">Gestión de la flota de vehículos</p>
         </div>
         <button
           onClick={() => {
             setSelectedVehicle(undefined);
             setIsModalOpen(true);
           }}
-          className="btn-primary flex items-center space-x-2"
+          className="btn-primary flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white"
         >
           <Plus size={20} />
           <span>Nuevo Vehículo</span>
         </button>
       </div>
 
-      <div className="card">
+      <div className="card bg-blue-50 border border-blue-200">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-blue-200">
+            <thead className="bg-blue-100">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Vehículo
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Placa
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Año
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Combustible
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Kilometraje
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Tarifa/Día
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Estado
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-blue-600 uppercase tracking-wider">
                   Acciones
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-white divide-y divide-blue-100">
               {vehicles.map((vehicle: Vehicle) => (
-                <tr key={vehicle.id} className="hover:bg-gray-50">
+                <tr key={vehicle.id} className="hover:bg-blue-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="font-medium text-gray-900">
+                    <div className="font-medium text-blue-900">
                       {vehicle.brand} {vehicle.model}
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-600">
                     {vehicle.license_plate}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-500">{vehicle.year}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-600">{vehicle.year}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-600">
                     {vehicle.fuel_type}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-600">
                     {vehicle.current_km.toLocaleString()} km
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-900 font-semibold">
+                  <td className="px-6 py-4 whitespace-nowrap text-blue-900 font-semibold">
                     S/. {vehicle.daily_rate}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">{getStatusBadge(vehicle.status)}</td>
@@ -263,7 +263,7 @@ const Vehicles = () => {
                       </button>
                       <button
                         onClick={() => handleEdit(vehicle)}
-                        className="text-indigo-600 hover:text-indigo-900"
+                        className="text-blue-700 hover:text-blue-900"
                         title="Editar"
                       >
                         <Edit size={18} />
@@ -284,22 +284,22 @@ const Vehicles = () => {
         </div>
 
         {data && data.last_page > 1 && (
-          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200">
-            <div className="text-sm text-gray-500">
+          <div className="flex items-center justify-between px-6 py-4 border-t border-blue-200">
+            <div className="text-sm text-blue-600">
               Página {data.current_page} de {data.last_page}
             </div>
             <div className="flex space-x-2">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="btn-secondary disabled:opacity-50"
+                className="btn-secondary disabled:opacity-50 bg-blue-200 text-blue-800"
               >
                 Anterior
               </button>
               <button
                 onClick={() => setPage((p) => Math.min(data.last_page, p + 1))}
                 disabled={page === data.last_page}
-                className="btn-secondary disabled:opacity-50"
+                className="btn-secondary disabled:opacity-50 bg-blue-200 text-blue-800"
               >
                 Siguiente
               </button>

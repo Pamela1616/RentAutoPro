@@ -95,22 +95,27 @@ const Rentals = () => {
     }
   };
 
-  const handleDownloadPDF = async (id: string) => {
-    try {
-      const response = await rentalsApi.generatePDF(id);
-      // Crear un blob y descargarlo
-      const blob = new Blob([response.data], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `contrato-alquiler-${id}.pdf`;
-      link.click();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      alert('Error al generar el PDF');
-      console.error(error);
-    }
-  };
+ const handleDownloadPDF = async (id: string) => {
+  try {
+    const blob = await rentalsApi.generatePDF(id); // 👈 aquí ya es un Blob
+    console.log("Blob recibido:", blob);
+
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `contrato-alquiler-${id}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    alert('Error al generar el PDF');
+    console.error(error);
+  }
+};
+
+
 
   const getStatusBadge = (status: string) => {
     const badges = {
