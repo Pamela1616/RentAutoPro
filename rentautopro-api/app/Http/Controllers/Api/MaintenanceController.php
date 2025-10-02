@@ -17,16 +17,16 @@ class MaintenanceController extends Controller
     {
         $query = Maintenance::with('vehicle');
 
-        // Filters
-        if ($request->has('status')) {
+        // Filters - solo aplicar si el valor no está vacío
+        if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        if ($request->has('type')) {
+        if ($request->filled('type')) {
             $query->where('type', $request->type);
         }
 
-        if ($request->has('vehicle_id')) {
+        if ($request->filled('vehicle_id')) {
             $query->where('vehicle_id', $request->vehicle_id);
         }
 

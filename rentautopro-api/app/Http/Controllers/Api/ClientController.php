@@ -17,13 +17,14 @@ class ClientController extends Controller
     {
         $query = Client::query();
 
-        // Search
-        if ($request->has('search')) {
-            $search = $request->search;
+        // Search - only apply if search term is not empty
+        if ($request->has('search') && !empty(trim($request->search))) {
+            $search = trim($request->search);
             $query->where(function ($q) use ($search) {
                 $q->where('full_name', 'ilike', "%{$search}%")
                     ->orWhere('document_id', 'ilike', "%{$search}%")
-                    ->orWhere('email', 'ilike', "%{$search}%");
+                    ->orWhere('email', 'ilike', "%{$search}%")
+                    ->orWhere('phone', 'ilike', "%{$search}%");
             });
         }
 
